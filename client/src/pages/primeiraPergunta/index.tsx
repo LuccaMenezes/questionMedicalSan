@@ -40,7 +40,7 @@ const MatrizForm = () => {
     setLoading(true);
   
     try {
-      const response = await fetch('https://question-medical-san.vercel.app/matriz/gerarMatriz', {
+      const response = await fetch('http://localhost:5000/matriz/gerarMatriz', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -72,7 +72,7 @@ const MatrizForm = () => {
   
     setLoading(true);
     try {
-      const response = await fetch('https://question-medical-san.vercel.app/matriz/transporMatriz', {
+      const response = await fetch('http://localhost:5000/matriz/transporMatriz', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -112,7 +112,6 @@ const MatrizForm = () => {
     );
   };
 
-
   return (
     <Layout>
       <Layout.Header sticky>
@@ -132,8 +131,8 @@ const MatrizForm = () => {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="flex items-end space-x-4">
-            {/* Input para Número de Linhas */}
+          <div className="flex flex-col sm:flex-row sm:items-end sm:space-x-4 space-y-4 sm:space-y-0">
+           
             <div className="flex-1">
               <label className="block mb-2 text-lg font-medium">Número de Linhas:</label>
               <Input
@@ -144,8 +143,7 @@ const MatrizForm = () => {
                 className="w-full"
               />
             </div>
-
-            {/* Input para Número de Colunas */}
+            
             <div className="flex-1">
               <label className="block mb-2 text-lg font-medium">Número de Colunas:</label>
               <Input
@@ -157,7 +155,6 @@ const MatrizForm = () => {
               />
             </div>
 
-            {/* Select para Row-major ou Column-major */}
             <div className="flex-1">
               <label className="block mb-2 text-lg font-medium">Preenchimento:</label>
               <Select onValueChange={handlePreenchimentoChange} defaultValue={preenchimento}>
@@ -171,9 +168,8 @@ const MatrizForm = () => {
               </Select>
             </div>
 
-            {/* Botão para Submeter o Formulário */}
-            <div>
-              <Button type="submit" disabled={loading}>
+            <div className="flex-none">
+              <Button type="submit" disabled={loading} className="w-full sm:w-auto">
                 {loading ? 'Gerando...' : 'Preencher'}
               </Button>
             </div>

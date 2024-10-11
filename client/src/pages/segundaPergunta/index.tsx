@@ -17,7 +17,7 @@ const StringInverterPage = () => {
 
   const invertString = async () => {
     try {
-      const response = await fetch('https://question-medical-san.vercel.app/string/stringCompleta', {
+      const response = await fetch('http://localhost:5000/string/stringCompleta', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -39,7 +39,7 @@ const StringInverterPage = () => {
 
   const invertWordsInString = async () => {
     try {
-      const response = await fetch('https://question-medical-san.vercel.app/string/inverterPalavra', {
+      const response = await fetch('http://localhost:5000/string/inverterPalavra', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -75,21 +75,21 @@ const StringInverterPage = () => {
           <div>
             <h2 className='text-2xl font-bold tracking-tight mb-2'>Inversão de String</h2>
             <Breadcrumb items={[{ title: "Segunda Pergunta", link: "" }]} />
-            <div className="flex flex-col h-screen w-96 mt-12">
-            <Label htmlFor="entrada" className='mb-3 text-base'>Valor de entrada</Label>
+            <div className="flex flex-col h-screen w-96 mt-7">
+            <Label htmlFor="entrada" className='mb-3'>Valor de entrada</Label>
               <Input
                 placeholder="Digite a string aqui..."
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
-                className="mb-4 text-base"
+                className="mb-4"
                 id='entrada'
               />
               <div className="flex space-x-2">
-                <Button className='text-base' onClick={invertString}>Inverter String</Button>
-                <Button className='text-base' onClick={invertWordsInString}>Inverter Palavra</Button>
+                <Button onClick={invertString}>Inverter String</Button>
+                <Button onClick={invertWordsInString}>Inverter Palavra</Button>
               </div>
-              {result && <Alert className="mt-4 text-base"><span className='font-bold'>Resultado:</span> {result}</Alert>}
-              {error && <Alert variant="error" className="mt-4 text-base">{error}</Alert>}
+              {result && <Alert className="mt-4"><span className='font-bold'>Resultado:</span> {result}</Alert>}
+              {error && <Alert variant="error" className="mt-4">{error}</Alert>}
             </div>
           </div>
         </div>

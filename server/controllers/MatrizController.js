@@ -29,13 +29,11 @@ module.exports = class MatrizController {
             return res.status(400).json({ error: 'Parâmetros inválidos' });
         }
 
-        // Transformar o array unidimensional em uma matriz bidimensional
         let matrizBidimensional = [];
         for (let i = 0; i < linhas; i++) {
             matrizBidimensional.push(matriz.slice(i * colunas, (i + 1) * colunas));
         }
 
-        // Transpor a matriz
         let matrizTransposta = [];
         for (let j = 0; j < colunas; j++) {
             let newRow = [];
