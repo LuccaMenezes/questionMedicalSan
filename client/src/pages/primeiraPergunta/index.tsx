@@ -40,7 +40,7 @@ const MatrizForm = () => {
     setLoading(true);
   
     try {
-      const response = await fetch('http://localhost:5000/matriz/gerarMatriz', {
+      const response = await fetch('https://question-medical-san.vercel.app/matriz/gerarMatriz', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -72,7 +72,7 @@ const MatrizForm = () => {
   
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:5000/matriz/transporMatriz', {
+      const response = await fetch('https://question-medical-san.vercel.app/matriz/transporMatriz', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

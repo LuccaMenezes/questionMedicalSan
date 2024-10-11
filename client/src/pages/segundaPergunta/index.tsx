@@ -17,7 +17,7 @@ const StringInverterPage = () => {
 
   const invertString = async () => {
     try {
-      const response = await fetch('http://localhost:5000/string/stringCompleta', {
+      const response = await fetch('https://question-medical-san.vercel.app/string/stringCompleta', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -39,7 +39,7 @@ const StringInverterPage = () => {
 
   const invertWordsInString = async () => {
     try {
-      const response = await fetch('http://localhost:5000/string/inverterPalavra', {
+      const response = await fetch('https://question-medical-san.vercel.app/string/inverterPalavra', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
